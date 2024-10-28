@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NewTab</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        .navbar {
+            display: flex;
+            background-color: #007BFF;
+            color: white;
+            padding: 10px;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        .navbar button {
+            padding: 10px;
+            background-color: #0056b3;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .navbar button:hover {
+            background-color: #004494;
+        }
+
+        .content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        iframe {
+            flex: 1;
+            border: none;
+            width: 100%;
+        }
+
+        .open-link-btn {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+            align-self: center;
+        }
+
+        .open-link-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="navbar">
+            <div class="links">
+                <a href="#" data-url="https://broken9999.github.io/embed.github.io/">Embeder</a>
+                <a href="#" data-url="https://broken9999.github.io/.github.io/">House</a>
+                <a href="#" data-url="https://broken9999.github.io/Minecraft.github.io/">Miner</a>
+                <a href="#" data-url="https://broken9999.github.io/WatchVids.github.io/">Black</a>
+                <a href="#" data-url="https://broken9999.github.io/incrediblewebsite.github.io/#gsc.tab=0&gsc.sort=">Search</a>
+                <a href="#" data-url="https://broken9999.github.io/Try-Your-Best/">Quiz</a>
+                <a href="#" data-url="https://broken9999.github.io/Hangman.github.io/">Hangman</a>
+                <a href="#" data-url="https://bitburner-official.github.io/">Bitburner-official</a>
+                <a href="#" data-url="https://bitburner-official.github.io/bitburner-src/">Bitburner-src</a>
+                <a href="#" data-url="https://youtu.be/dQw4w9WgXcQ?si=ORrUVrJruoRwcZEt">Read</a>
+            </div>
+            <button id="fullscreenBtn">Fullscreen</button>
+        </div>
+        <div class="content">
+            <iframe id="websiteFrame" src="https://broken9999.github.io/embed.github.io/"></iframe>
+            <button class="open-link-btn">Open Link</button>
+        </div>
+    </div>
+
+    <script>
+        const links = document.querySelectorAll('.navbar a');
+        const iframe = document.getElementById('websiteFrame');
+        const fullscreenBtn = document.getElementById('fullscreenBtn');
+        const openLinkBtn = document.querySelector('.open-link-btn');
+
+        links.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                iframe.src = link.getAttribute('data-url');
+            });
+        });
+
+        openLinkBtn.addEventListener('click', () => {
+            const currentUrl = iframe.src;
+            if (currentUrl) {
+                window.open(currentUrl, '_blank');
+            }
+        });
+
+        fullscreenBtn.addEventListener('click', () => {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen();
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                }
+            }
+        });
+    </script>
+</body>
+</html>
